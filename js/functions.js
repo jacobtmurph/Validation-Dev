@@ -30,7 +30,7 @@ function validateEmail(emailField) {
 //Validate Credit Card Payment in Real-Time
 function validateCreditCard(cardNumField, zipField, cvvField) {
     cardNumField.addEventListener("input", () => {
-        if (isNaN(parseInt(cardNumField.value)) || cardNumField.value.length < 13 || cardNumField.value.length > 16) {
+        if (isNaN(cardNumField.value) || cardNumField.value.length < 13 || cardNumField.value.length > 16) {
             //Update Card Number field to include error message
             cardNumField.previousElementSibling.textContent = "Card Number: (Invalid)";
             
@@ -44,7 +44,7 @@ function validateCreditCard(cardNumField, zipField, cvvField) {
     }); //End Event Listener
 
     zipField.addEventListener("input", () => {
-        if (isNaN(parseInt(zipField.value)) || zipField.value.length != 5) {
+        if (isNaN(zipField.value) || zipField.value.length != 5) {
             //Update Card Number field to include error message
             zipField.previousElementSibling.textContent = "Zip Code: (Invalid)";
             
@@ -58,7 +58,7 @@ function validateCreditCard(cardNumField, zipField, cvvField) {
     }); //End Event Listener
 
     cvvField.addEventListener("input", () => {
-        if (isNaN(parseInt(cvvField.value)) || cvvField.value.length != 3) {
+        if (isNaN(cvvField.value) || cvvField.value.length != 3) {
             //Update Card Number field to include error message
             cvvField.previousElementSibling.textContent = "CVV: (Invalid)";
             

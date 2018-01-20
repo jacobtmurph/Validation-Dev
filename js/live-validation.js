@@ -34,8 +34,8 @@ jobSelector.addEventListener("change", () => {
 const designSelector = document.getElementById("design");
 const colorDiv = document.getElementById("colors-js-puns");
 const colorSelector = document.getElementById("color");
-const jsPunShirts =  Array.from(colorSelector.children).slice(0, 3);
-const iHeartJsShirts =  Array.from(colorSelector.children).slice(3);
+const jsPunShirts =  Array.from(colorSelector.children).slice(1, 4);
+const iHeartJsShirts =  Array.from(colorSelector.children).slice(4);
 
 //Auto hide color tab
 colorDiv.style.display = "none";
@@ -48,6 +48,7 @@ designSelector.addEventListener("change", () => {
     } else if (design.value == "js puns") {
         //If the "JS Puns" Design is selected, how the colorDiv but hide "I heart JS" designs
         colorDiv.style.display = "inline";
+        colorDiv.value = "select";
 
         jsPunShirts.forEach(teeDesign => {
             teeDesign.style.display = "inline";
@@ -59,6 +60,7 @@ designSelector.addEventListener("change", () => {
     } else {
         //Else, show the color div & only "I heart JS" designs
         colorDiv.style.display = "inline";
+        colorDiv.value = "select";
 
         iHeartJsShirts.forEach(teeDesign => {
             teeDesign.style.display = "inline";
@@ -81,20 +83,17 @@ getInputs("all", "js-frameworks", "js-libs", "express", "node", "build-tools", "
 //Add selectEventListener Function for the Main Conference and each event from 9am-12pm.
 selectEventListener(allInput);
 
-selectEventListener(jsFrameworksInput, expressInput, buildToolsInput);
-
-selectEventListener(expressInput, jsFrameworksInput, buildToolsInput);
-
-selectEventListener(buildToolsInput, expressInput, jsFrameworksInput);
+selectEventListener(jsFrameworksInput, expressInput);
+selectEventListener(expressInput, jsFrameworksInput);
+selectEventListener(buildToolsInput);
 
 
 //Add selectEventListener Functions for each event from 1pm-4pm
 
-selectEventListener(jsLibsInput, nodeInput, npmInput);
+selectEventListener(jsLibsInput, nodeInput);
+selectEventListener(nodeInput, jsLibsInput);
+selectEventListener(npmInput);
 
-selectEventListener(nodeInput, jsLibsInput, npmInput);
-
-selectEventListener(npmInput, nodeInput, jsLibsInput);
 
 
 /*** Payment Info ***/
